@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script>
+    class Dojo
+    {
+      constructor(id)
+      {
+        this.new_id=document.getElementById(id);
+        console.log(this.new_id);
+      }
+
+      click(callback)
+      {
+  
+        this.new_id.addEventListener("click",callback);
+
+      }
+      hover(mousein,mouseout)
+      {
+        this.new_id.addEventListener("mouseover",mousein);
+        this.new_id.addEventListener("mouseout",mouseout);
+      }
+    }
+    $(document).ready(function() {
+      var button1=new Dojo("button");
+      button1.click(function(){
+        $("body").append("Hello");
+      });
+      button1.hover(function mousein(){console.log("IN");},function mouseout(){console.log("OUT");});
+    });
+  </script>
+</head>
+<body>
+<button id="button" type="button" name="button">Hello</button>
+</body>
+</html>
