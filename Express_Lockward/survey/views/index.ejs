@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Survey</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Survey Form</legend>
+    <form class="form" action="/results" method="post">
+      <label for="name">Name: </label>
+      <input type="text" name="name"><br>
+      <label for="location">Location: </label>
+      <select name="location">
+        <option value="Seattle">Seattle</option>
+        <option value="New York City">NYC</option>
+        <option value="Houston">Houston</option>
+        <option value="Online">Online</option>
+      </select><br>
+      <label for="lang">Language: </label>
+      <select name="lang">
+        <option value="Python">Python</option>
+        <option value="C#">C#</option>
+        <option value="JavaScript">JS</option>
+        <option value="HTML">HTML</option>
+      </select><br>
+      <label for="comment">Comments: </label><br>
+      <textarea name="comment" rows="5" cols="60"></textarea><br>
+      <input type="submit"  value="Submit">
+    </form>
+  </fieldset>
+</body>
+</html>
