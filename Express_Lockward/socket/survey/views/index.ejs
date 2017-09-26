@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Survey</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type ="text/javascript">
+    $(document).ready(function (){
+        var socket = io.connect();
+        $('form').submit(function(e) {
+          $('.message').show();
+        	e.preventDefault();
+				  socket.emit("form_submitted", {
+				  	name: $('#name').val(),
+            location: $('#location').val(),
+            language: $('#lang').val(),
+            comment: $('#comment').val()
+          });
+			});
+      socket.on('server_response', function (data){
+    		$('#form_info').html("Welcome <span>"+data.response.name+"</span> from <span>"+data.response.location+"</span>! Your comment: <span>"+data.response.comment+"</span> is noted and we hope you enjoy coding in <span>"+data.response.language+"</span>!");
+        $('#number_info').html("Today, your lucky number is <span id='num'>"+data.response.number+"</span>!");
+    	});
+    });
+  </script>
+
+<body>
+  <container hidden class="message">
+    <div id='form_info'></div>
+    <div id='number_info'></div>
+  </container>
+  <fieldset>
+    <legend>Survey Form</legend>
+    <form class="form" action="">
+      <label for="name">Name: </label>
+      <input type="text" name="name" id='name'><br>
+      <label for="location">Location: </label>
+      <select name="location" id ='location'>
+        <option value="Seattle">Seattle</option>
+        <option value="New York City">NYC</option>
+        <option value="Houston">Houston</option>
+        <option value="Online">Online</option>
+      </select><br>
+      <label for="lang">Language: </label>
+      <select name="lang" id='lang'>
+        <option value="Python">Python</option>
+        <option value="C#">C#</option>
+        <option value="JavaScript">JS</option>
+        <option value="HTML">HTML</option>
+      </select><br>
+      <label for="comment">Comments: </label><br>
+      <textarea id='comment' name="comment" rows="5" cols="60"></textarea><br>
+      <input type="submit"  value="Submit">
+    </form>
+  </fieldset>
+</body>
+</html>
