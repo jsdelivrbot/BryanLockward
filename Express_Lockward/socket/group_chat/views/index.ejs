@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script>
+    var user;
+    $(document).ready(function (){
+      var socket = io.connect();
+      var user_name=prompt("Enter a User Name for the groupchat: ");
+      console.log(user_name);
+      socket.emit('login',{user:user_name});
+
+
+      $('#post_mess').click(function(e) {
+        e.preventDefault();
+        socket.emit("post_request", {
+          name:user,
+          message: $('#message').val(),
+        });
+      });
+
+      socket.on('post_response',function(data){
+        $('#new').append("<li>"+data.post.name+":  "+data.post.message+"</li>");
+        $('#message').val('');
+      })
+      socket.on('login_failed',function(data){
+        var new_name=prompt(data.message);
+        socket.emit('login',{user:new_name})
+      })
+      socket.on('success',function(response){
+        user=response.user;
+        $('#header').html("Welcome, "+user);
+        $('#chat').show();
+        let index;
+        for(index in response.posts)
+        {
+          $('#new').append(response.posts[index])
+        }
+      })
+    });
+  </script>
+</head>
+<body>
+  <h2 id='header'></h2>
+  <container hidden id='chat'>
+    <div id="board">
+      <ul id="new">
+      </ul>
+    </div>
+    <input type="text" id="message" name="message">
+    <button type="button" id='post_mess'name="post_mess">Button</button>
+  </container>
+</body>
+</html>
