@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Welcome to the Dojo Message Board</h2>
+  <% if(typeof(error) != 'undefined' ) { %>
+       <h3><%= error %></h3>
+         <a href="/"><button type="button" name="button">Return</button></a>
+  <% }else{ %>
+
+    <form  action="/post" method="post">
+      <p>Post a new Message</p>
+      <label for="name">Name: </label>
+      <input type="text" name="name"><br>
+      <label for="message">Message: </label>
+      <textarea name="message" rows="8" cols="80"></textarea><br>
+      <input type="submit" value="Submit">
+    </form>
+
+  <% for (var x in posts) { %>
+    <h3>Name: <%=posts[x].name%></h3>
+    <h3>Message: <%=posts[x].message%></h3>
+    <%if(posts[x]._comments.length>0) {%>
+      <% for (var y=0;y< posts[x]._comments.length;y++) { %>
+        <p>Name: <%=posts[x]._comments[y].name%></p>
+        <p>Comment: <%=posts[x]._comments[y].message%></p>
+      <% } %>
+    <%}%>
+    <form action="/comment/<%=posts[x].id%>" method="post">
+      <p>Post a New Comment</p>
+      <label for="name">Name: </label>
+      <input type="text" name="name"><br>
+      <label for="message">Comment: </label>
+      <textarea name="message" rows="8" cols="50"></textarea><br>
+      <input type="submit" value="Submit">
+    </form>
+    <a href="/delete/<%=posts[x].id%>"><button type="button" name="button">Delete</button></a>
+  <% } %>
+<%}%>
+
+</body>
+</html>
