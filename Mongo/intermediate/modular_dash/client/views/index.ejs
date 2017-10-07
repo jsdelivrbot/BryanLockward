@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/monkeys/new" method="post">
+    <input type="submit" value="Add a new Monkey">
+  </form>
+  <table>
+    <tr>
+
+      <th>Type</th>
+      <th>Name</th>
+      <th>Color</th>
+      <th>Height (inches)</th>
+      <th>Weight (lbs)</th>
+      <th>Options</th>
+    </tr>
+    <% for (var x in monkeys) { %>
+      <tr>
+        <td><%=monkeys[x].type%></td>
+        <td><%=monkeys[x].name%></td>
+        <td><%=monkeys[x].color%></td>
+        <td><%=monkeys[x].height%></td>
+        <td><%=monkeys[x].weight%></td>
+        <td><a href="/monkeys/<%=monkeys[x]._id%>">Show</a></td>
+        <td><a href="/monkeys/edit/<%=monkeys[x]._id%>">Edit</a></td>
+        <td><a href="/monkeys/destroy/<%=monkeys[x]._id%>">Destroy</a></td>
+      </tr>
+    <% } %>
+  </table>
+</body>
+</html>

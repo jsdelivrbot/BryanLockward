@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Edit <%= monkey.name %>!</h1>
+  <form action="/monkeys/<%= monkey.id %>" method='post'>
+    Type: <input type="text" name="type" value="<%= monkey.type %>"><br>
+    Name: <input type="text" name="name" value="<%= monkey.name %>"><br>
+    Color: <input type="text" name="color" value="<%= monkey.color %>"><br>
+    Height: <input type="text" name="height" value="<%= monkey.height %>"><br>
+    Weight: <input type="text" name="weight" value="<%= monkey.weight %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+  <a href="/"><button type="button" >Home</button></a>
+</body>
+</html>
