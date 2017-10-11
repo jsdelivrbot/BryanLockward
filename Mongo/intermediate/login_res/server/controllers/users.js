@@ -10,7 +10,8 @@ module.exports = {
         User.findOne({
             email: req.body.email
         }, function (err, user) {
-          let error= {
+
+            let error_context = {
                 errors: {
                     login: {
                         message: "User name or password is invalid",
@@ -19,15 +20,18 @@ module.exports = {
             }
 
             if (err) {
-                return res.render('index', error);
+                return res.render('index', error_context);
             }
+
             if (!user) {
-                return res.render('index', error);
+                return res.render('index', error_context);
             }
-            if (bcrypt.compareSync(req.body.password, user.password)) {
-                return res.render('index', error);
+            if (!bcrypt.compareSync(req.body.password, user.password)) {
+                return res.render('index', error_context);
             }
-            return res.json({ id: user._id });
+
+            return res.json(user);
+
         })
     },
 

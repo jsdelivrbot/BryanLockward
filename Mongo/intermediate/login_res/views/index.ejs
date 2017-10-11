@@ -7,63 +7,59 @@
   <title>Document</title>
 </head>
 <body>
-  <div id = 'container'>
-    <div id ='login'>
-        <form action="login" method='post'>
-                <% if(errors && errors.login){ %>
-                    <p class='error'><%= errors.login.message %></p>
-                <% } %>
-                <label for="email">Email:</label>
-                <p><input type="text" name='email'></p>
-                <label for="password">Password:</label>
-                <p><input type="password" name='password'></p>
-                <input type="submit" value="Login">
-        </form>
-    </div>
-    <div id = 'register'>
-        <form action="/register" method = 'post'>
-            <label for="first_name">First Name:</label>
-            <p><input type="text" name='first_name'></p>
-            <% if(errors && errors.first_name){ %>
-                <p class='error'><%= errors.first_name.message  %></p>
-            <% } %>
-
-            <label for="last_name">Last Name:</label>
-            <p><input type="text" name='last_name'></p>
-            <% if(errors && errors.last_name){ %>
-                <p class='error'><%= errors.last_name.message  %></p>
-            <% } %>
-
-            <label for="email">Email:</label>
-            <p><input type="text" name='email'></p>
-            <% if(errors && errors.email){ %>
-                <p class='error'><%= errors.email.message  %></p>
-            <% } %>
-
-            <% if( errors && errors.errmsg ){ %>
-                <p class='error'>Email already Registered</p>
-            <% } %>
-
-            <label for="birthday">Birthday:</label>
-            <p><input type="date" name='birthday'></p>
-            <% if(errors && errors.email){ %>
-                <p class='error'><%= errors.birthday.message  %></p>
-            <% } %>
+    <form action="login" method='post'>
+      <% if(errors && errors.login){ %>
+        <p><%= errors.login.message %></p>
+      <% } %>
+      <label for="email">Email:</label>
+      <p><input type="text" name='email'></p>
+      <label for="password">Password:</label>
+      <p><input type="password" name='password'></p>
+      <input type="submit" value="Login">
+    </form>
 
 
-            <label for="password">Password:</label>
-            <p><input type="password" name='password'></p>
+    <form action="/register" method = 'post'>
 
-            <label for="password_confirm">Confirm Password:</label>
-            <p><input type="password" name='password_confirm'></p>
-            <% if(errors && errors.password){ %>
-                <p class='error'><%= errors.password.message %></p>
-            <% } %>
+      <label for="first_name">First Name:</label>
+      <p><input type="text" name='first_name'></p>
+      <% if(errors && errors.first_name){ %>
+        <p><%= errors.first_name.message  %></p>
+      <% } %>
 
-            <input type="submit" value="Register">
-        </form>
-    </div>
-</div>
+      <label for="last_name">Last Name:</label>
+      <p><input type="text" name='last_name'></p>
+      <% if(errors && errors.last_name){ %>
+        <p><%= errors.last_name.message  %></p>
+      <% } %>
+
+      <label for="email">Email:</label>
+      <p><input type="text" name='email'></p>
+      <% if(errors && errors.email){ %>
+        <p><%= errors.email.message  %></p>
+      <% } %>
+      <% if( errors && errors.errmsg ){ %>
+        <p>Email already Registered</p>
+      <% } %>
+
+      <label for="birthday">Birthday:</label>
+      <p><input type="date" name='birthday'></p>
+          <% if(errors && errors.email){ %>
+            <p><%= errors.birthday.message  %></p>
+          <% } %>
+
+
+      <label for="password">Password:</label>
+      <p><input type="password" name='password'></p>
+
+      <label for="password_confirm">Confirm Password:</label>
+      <p><input type="password" name='password_confirm'></p>
+      <% if(errors && errors.password){ %>
+        <p><%= errors.password.message %></p>
+      <% } %>
+
+      <input type="submit" value="Register">
+    </form>
 
 
 </body>
