@@ -1,22 +1,23 @@
 var myNum: number = 5;
 var myString: string = "Hello Universe";
 var myArr: Array<number> = [1, 2, 3, 4];
-var myObj: {} = { name: "Bill" };
+var myObj: {[key: string]: (string | number) } = { name: "Bill" };
 var anythingVariable: any = "Hey";
 var anythingVariable: any = 25; 
 var arrayOne: Array<boolean> = [true, false, true, true];
-var arrayTwo: any =[1, 'abc', true, 2];
-var myObj: {} = { x: 5, y: 10 };
+var arrayTwo: (number | string | boolean)[]  =[1, 'abc', true, 2];
+var myObj= { x: 5, y: 10 };
 console.log(myObj);
 class MyNode {
     val: number;
+    _priv:number;
 
     constructor(val: number) {
         this.val = 0;
         this.val = val;
     }
     doSomething() {
-        var _priv = 10;
+        this._priv = 10;
     }
     
 }
