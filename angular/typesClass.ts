@@ -6,7 +6,7 @@ var anythingVariable: any = "Hey";
 var anythingVariable: any = 25; 
 var arrayOne: Array<boolean> = [true, false, true, true];
 var arrayTwo: (number | string | boolean)[]  =[1, 'abc', true, 2];
-var myObj= { x: 5, y: 10 };
+ myObj= { x: 5, y: 10 };
 console.log(myObj);
 class MyNode {
     val: number;

@@ -1,0 +1,19 @@
+<h1>Dojo Mail</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Importance</th>
+      <th>Subject</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let mail of emails">
+      <td>{{mail.address}}</td>
+      <td>{{mail.importance}}</td>
+      <td>{{mail.subject}}</td>
+      <td>{{mail.content}}</td>
+    </tr>
+  </tbody>
+</table>
