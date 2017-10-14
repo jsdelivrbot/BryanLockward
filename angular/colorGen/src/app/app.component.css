@@ -1,0 +1,6 @@
+.block {
+    width: 75px;
+    height: 75px;
+    outline: 1px solid black;
+    display:inline-block;
+}
