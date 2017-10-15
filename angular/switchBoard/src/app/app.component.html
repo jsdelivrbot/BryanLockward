@@ -1,0 +1,12 @@
+
+<div id="container">
+  <h2>Try out the Switch Board</h2>
+  <div id='board'
+   *ngFor="let switch of switchArr">
+
+    <button class="switch"
+    [ngStyle]="{'background-color':switch.color}"
+    (click)="onSwitch(switch.id)">
+    {{switch.name}}</button>
+  </div>
+</div>
