@@ -1,0 +1,110 @@
+<div *ngIf="saveUser!=undefined">
+  <p>Thank you for registering with us {{saveUser.fName}} {{saveUser.lName}}. We just sent you a confirmation email to {{saveUser.email}}
+    and we will send all mail to{{ saveUser.street}}, {{saveUser.city}} ,{{saveUser.state}}.</p>
+</div>
+<div>
+   <form (submit)='onSubmit($event,form); form.reset()' #form='ngForm'>
+      
+    <div class='field'>
+      <label for="fName">First Name: </label>
+      <input type="text"
+      name='fName'
+      required
+      minlength="3"
+      [(ngModel)]='user.fName'
+      #fName="ngModel">
+      <div class="error" *ngIf="!fName.valid">Name Must Exist</div>
+    </div>
+    <div>
+      <label for="lName">Last Name: </label>
+      <input type="text"
+      minlength="3"
+      name='lName'
+      required
+      [(ngModel)]='user.lName'
+      #lName="ngModel">
+      <div class="error" *ngIf="!lName.valid">Last Name Must Exist</div>
+    </div>
+    <div>
+      <label for="email">Email: </label>
+      <input type="email"
+      name='email'
+      required
+      minlength="3"
+      [(ngModel)]='user.email'
+      #email="ngModel">
+      <div class="error" *ngIf="!email.valid"> Must be a valid email address</div>
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input type="password"
+      minlength="16"
+      required
+      name='password'
+      [(ngModel)]='user.password'
+      #password="ngModel">
+      <div class="error" *ngIf="!password.valid">Must be 16 Characters</div>
+    </div>
+    <div>
+      <label for="passwordConf">Confirm Password: </label>
+      <input type="password"
+      minlength="16"
+      required
+      name='passwordConf'
+      [(ngModel)]='user.passwordConf'
+      #passwordConf="ngModel">
+      <div class="error" *ngIf="user.passwordConf!==user.password">Must Match Password</div>
+    </div>
+    <div>
+      <label for="streetAddress">Street Address: </label>
+      <input type="text"
+      name="streetAddress"
+      minlength="3"
+      required
+      [(ngModel)]='user.streetAddress'
+      #streetAddress="ngModel">
+      <div class="error" *ngIf="!streetAddress.valid">Address Must Exist</div>
+    </div>
+    <div>
+      <label for="unit">Unit/ Apt#:  </label>
+      <input type="text"
+      name='unit'
+      [(ngModel)]='user.unit'>
+    </div>
+    <div>
+      <label for="city"> City: </label>
+      <input type="text"
+      minlength="2"
+      name='city'
+      required
+      [(ngModel)]='user.city'
+      #city="ngModel">
+      <div class="error" *ngIf="!city.valid">City Must Exist</div>
+    </div>
+    <div>
+      <label for="state"> State: </label>
+      <input type="text"
+      minlength="2"
+      name='state'
+      required
+      [(ngModel)]='user.state'
+      #state="ngModel">
+      <div class="error" *ngIf="!state.valid">State Must Exist</div>
+    </div>
+    <div>
+      <label for="luck"> Feeling Lucky? </label>
+      <input type="text"
+      minlength="2"
+      name='luck'
+      required 
+      [(ngModel)]='user.luck'
+      #luck="ngModel">
+      <div class="error" *ngIf="!luck.valid">Luck Must Exist</div>
+    </div>
+    <input  type="submit" value="Register" [disabled]='form.invalid' >
+  </form>
+
+
+
+
+</div>
