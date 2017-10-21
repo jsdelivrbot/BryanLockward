@@ -1,0 +1,13 @@
+<section>
+  Adjust Incoming Power Level:
+  <input type="number"
+    max="100"
+    min="0" 
+  [(ngModel)]="power">
+</section>
+<app-human [power]='power'></app-human>
+<app-saiyan [power]='power'></app-saiyan>
+<app-super-saiyan [power]='power'></app-super-saiyan>
+<app-super-saiyanTwo [power]='power'></app-super-saiyanTwo>
+<app-super-saiyanThree [power]='power'></app-super-saiyanThree>
+<app-super-saiyanFour [power]='power'></app-super-saiyanFour>
