@@ -1,0 +1,14 @@
+<h1>Quotes List</h1>
+<div *ngFor="let q of quotes">
+  <div>
+    <p>{{q.quote}}</p>
+    <span>- {{q.author}}</span>
+  </div>
+  <div>
+    <h2>{{q.like}}</h2>
+  </div>
+  <div>
+    <button (click)="like(q)"> Like this Quote</button>
+    <button (click)="dislike(q)">Dislike this Quote</button>
+  </div> 
+</div>
