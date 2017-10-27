@@ -1,0 +1,17 @@
+<main>
+  <h1>Github Score</h1>
+  <form (submit)="onSubmit($event,form); form.reset();" #form="ngForm">
+      <label for = "userName">User Name: </label>
+      <input type="text"
+      min="3"
+      name="userName"
+      #userName="ngModel"
+      [(ngModel)]="newUser.userName"
+      required
+      >
+      <button type='submit' [disabled]="!form.valid">Find Your Score</button>
+      </form>
+
+      {{newUser.score}}
+      {{newUser.error}}
+</main>
