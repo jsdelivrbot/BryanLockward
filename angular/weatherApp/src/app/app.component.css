@@ -1,0 +1,14 @@
+
+#nav, #main{
+    display: inline-block;
+}
+#nav{
+    list-style: none;
+    padding:20px;
+}
+#main{
+    width:70%;
+    outline: 1px solid black;
+    padding:40px;
+    
+}
