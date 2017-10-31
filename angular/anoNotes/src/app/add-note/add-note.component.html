@@ -1,0 +1,7 @@
+<form (submit)='onSubmit($event, form); form.reset();' #form='ngForm'>
+        <input type="text" name='context'
+        minlength='5'
+        [(ngModel)]='note.context'
+        required>
+    <button [hidden]='form.invalid' >Submit</button>
+</form>
