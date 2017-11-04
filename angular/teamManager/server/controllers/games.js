@@ -6,27 +6,27 @@ module.exports = {
         console.log('index request', request.body);
         Game.find(request.body)
             .then(games => response.json(games))
-            .catch(errorHandler.bind(response))
+            .catch(response)
     }, 
     show(request, response){
         Game.findById(request.params.id)
             .then(game => response.json(game))
-            .catch(errorHandler.bind(response))
+            .catch(response)
     },
     create(request, response){
         console.log('request body', request.body);
         Game.create(request.body)
             .then(game => response.json(game))
-            .catch(errorHandler.bind(response))
+            .catch(response)
     },
     update(request, response) {
         Game.findByIdAndUpdate(request.params.id, request.body, { new: true })
             .then(game => response.json(game))
-            .catch(errorHandler.bind(response));
+            .catch(response);
     },
     destroy(request, response) {
         Game.findByIdAndRemove(request.params.id)
             .then(game => response.json(game))
-            .catch(errorHandler.bind(response));
+            .catch(response);
     },
 }

@@ -59,6 +59,7 @@ export class StatusComponent implements OnInit {
   }
 
   generateGame(){
+    console.log("here");
     let num = this.games.length + 1;
     this._gameService.createGame(new Game(num));
 
