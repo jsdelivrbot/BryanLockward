@@ -1,0 +1,11 @@
+<section>
+  <h3>Login</h3>
+         
+  <form (submit)="login($event)" #loginData="ngForm" >
+
+    <p>Name</p>
+    <p><input type="name" name="name" [(ngModel)]="user.name"></p>
+
+    <input type="submit" value="Login/Register">
+  </form>
+</section>

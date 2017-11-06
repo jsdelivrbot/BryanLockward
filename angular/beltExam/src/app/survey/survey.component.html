@@ -1,0 +1,44 @@
+
+  <a (click)="create()">Create a Poll</a> 
+  <a (click)="logout()">Logout</a>
+
+<h3>Current Polls</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Question</th>
+          <th>Time Posted</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor='let poll of questions'>
+          <td> {{ poll.name }} </td>
+          <td (click)="show(poll._id)"> {{ poll.question}} </td>
+          <td> {{ poll.time }} </td>
+          <td><button (click)="delete(poll.name,poll._id)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+        <form (ngSubmit)="search($event); formData.reset()" #formData="ngForm" >
+            <h4>Seach a User</h4>
+            <input type="text" 
+              name='inquiry'
+              minlength='3' 
+              [(ngModel)]='inquiry' 
+            required>
+            <button [hidden]='formData.invalid' >Search</button>
+        </form>
+  
+  </div>
+<div *ngIf='searchQuestion'>
+  <h3>Posts by {{searchName}}</h3>
+  <ul>
+    <li *ngFor='let search of searchQuestion'> {{search.question}} at {{search.time}}</li>
+  </ul>
+</div>

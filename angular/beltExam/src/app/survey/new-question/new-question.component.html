@@ -1,0 +1,51 @@
+<a (click)="cancel()"> Cancel</a>
+<h3>Create a Listing</h3>
+<form (ngSubmit)="onSubmit($event); formData.reset()" #formData="ngForm" >
+    
+    <div>
+      <label for="question">Question</label>
+      <input type="text" 
+        name='question'
+        minlength='8'
+        [(ngModel)]='poll.question'
+      required>
+    </div>
+      
+    <div>
+      <label for="option1">Option 1</label>
+      <input type="text" 
+        name='option1'
+        minlength='3' 
+        [(ngModel)]='poll.option1' 
+      required>
+      </div>
+      
+      <div>
+        <label for="option2">Option 2</label>
+        <input type="text" 
+          name='option2'
+          minlength='3' 
+          [(ngModel)]='poll.option2' 
+        required>
+      </div>
+
+      <div>
+        <label for="option3">Option 3</label>
+        <input type="text" 
+          name='option3'
+          minlength='3' 
+          [(ngModel)]='poll.option3' 
+        required>
+      </div>
+
+      <div>
+        <label for="option4">Option 4</label>
+        <input type="text" 
+          name='option4'
+          minlength='3' 
+          [(ngModel)]='poll.option4' 
+        required>
+      </div>
+
+      <button [hidden]='formData.invalid' >Submit</button>
+</form>

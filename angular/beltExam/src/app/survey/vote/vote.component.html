@@ -1,0 +1,47 @@
+<a (click)="goBack()">Go Back</a>
+<h2>{{poll.question}}</h2>
+<h4>Written by {{poll.name}}</h4>
+
+<table>
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Votes</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>{{ poll.option1 }}</td>
+        <td>{{ poll.option1vote}}</td>
+        <td>
+          <button (click)='vote(poll.option1)'>Vote</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{{ poll.option2 }}</td>
+        <td>{{ poll.option2vote}}</td>
+        <td>
+          <button (click)='vote(poll.option2)'> Vote</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{{ poll.option3 }}</td>
+        <td>{{ poll.option3vote}}</td>
+        <td >
+          <button (click)='vote(poll.option3)'>Vote</button>
+        </td>
+       </tr>
+
+      <tr>
+        <td>{{ poll.option4 }}</td>
+          <td>{{ poll.option4vote}}</td>
+          <td >
+            <button (click)='vote(poll.option4)'> Vote</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
