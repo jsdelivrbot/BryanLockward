@@ -1,12 +1,46 @@
-<h2>Welcome to the Dojo Weather App</h2>
-<div id = 'nav'>
-    <ul>
-        <li><a [routerLink]="['/burbank']">Burbank, CA</a></li>
-        <li><a [routerLink]="['/chicago']">Chicago, IL</a></li>
-        <li><a [routerLink]="['/seattle']">Seattle, WA</a></li>
-        <li><a [routerLink]="['/sanjose']">San Jose, CA</a></li>
-        <li><a [routerLink]="['/dallas']">Dallas, TX</a></li>
-        <li><a [routerLink]="['/dc']">Washington D.C.</a></li>
-    </ul>
+<body>
+<div id="heading">
+  <h3>Today's Weather Finder</h3>
 </div>
-<div id='main'><router-outlet></router-outlet></div>
+  <div id = 'nav'>
+      <ul id='nav-list'>
+          <li><a [routerLink]="['/burbank']">Burbank, CA</a></li>
+          <li><a [routerLink]="['/chicago']">Chicago, IL</a></li>
+          <li><a [routerLink]="['/newyork']">New York, NY</a></li>
+          <li><a [routerLink]="['/dallas']">Dallas, TX</a></li>
+      </ul>
+    <form id='nav-form'(submit)="onSubmit($event,form); form.reset();" #form="ngForm">
+      <input type="text"
+      name='city'
+      #city="ngModel"
+      placeholder=" Search..."
+      minlength="3"
+      [(ngModel)]="newCity"
+      >
+      <button type='submit' [disabled]="!form.valid">Search City</button>
+    </form>
+  </div>
+
+<div id="middle">
+  <div id='main'><router-outlet></router-outlet></div>
+</div>
+<div id='sidebar'>
+    <fieldset class='alert'>
+      <legend>Alert</legend>
+      Alert.....................
+      ......
+      ...........
+    </fieldset>
+    <fieldset class='alert'>
+      <legend>Alert</legend>
+      Alert.....................
+      ......
+      ...........
+    </fieldset>
+</div>
+
+<div id="footer">
+  <p>Contact Bryan</p>
+  <p>Email @ Bmlockward3@verizon.net</p>
+</div>
+</body>

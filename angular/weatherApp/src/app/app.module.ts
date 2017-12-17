@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { BurbankComponent } from './burbank/burbank.component';
-import { SeattleComponent } from './seattle/seattle.component';
 import { DallasComponent } from './dallas/dallas.component';
-import { SanJoseComponent } from './san-jose/san-jose.component';
-import { WashingtonDcComponent } from './washington-dc/washington-dc.component';
+import { NewYorkComponent } from './new-york/new-york.component';
 import { ChicagoComponent } from './chicago/chicago.component';
 import { MainComponent } from './main/main.component';
 import {WeatherService} from './weather-service.service';
@@ -16,17 +15,16 @@ import { routing } from './routes';
   declarations: [
     AppComponent,
     BurbankComponent,
-    SeattleComponent,
     DallasComponent,
-    SanJoseComponent,
-    WashingtonDcComponent,
+    NewYorkComponent,
     ChicagoComponent,
     MainComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    routing
+    routing,
+    FormsModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
